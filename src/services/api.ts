@@ -5,21 +5,25 @@ const isDevelopment = import.meta.env.DEV;
 let API_BASE_URL;
 
 try {
-  // More verbose logging to help diagnose the issue
-  console.log('Environment:', import.meta.env);
-  console.log('isDevelopment:', isDevelopment);
-  console.log('VITE_API_URL:', import.meta.env.VITE_API_URL);
-  console.log('window.location.origin:', window.location.origin);
+  // Get the API URL from environment variables
+  const envApiUrl = import.meta.env.VITE_API_URL;
   
-  API_BASE_URL = isDevelopment 
-    ? "http://localhost:8000" // Changed from 0.0.0.0 to localhost
-    : (import.meta.env.VITE_API_URL || window.location.origin);
-    
-  console.log(`Using API URL: ${API_BASE_URL} (${isDevelopment ? 'development' : 'production'} environment)`);
+  if (isDevelopment) {
+    // Development environment - use localhost unless specifically overridden
+    API_BASE_URL = envApiUrl || "http://localhost:8000";
+    console.log(`Development environment - using API URL: ${API_BASE_URL}`);
+  } else {
+    // Production environment - use environment variable with fallback
+    API_BASE_URL = envApiUrl || "https://strangemetrics.onrender.com";
+    console.log(`Production environment - using API URL: ${API_BASE_URL}`);
+  }
 } catch (error) {
   console.error('Error initializing API_BASE_URL:', error);
-  // Fallback to a safe default
-  API_BASE_URL = 'http://localhost:8000';
+  // Fallback to a safe default based on environment
+  API_BASE_URL = isDevelopment 
+    ? 'http://localhost:8000' 
+    : 'https://strangemetrics.onrender.com';
+  console.log(`Using fallback API URL: ${API_BASE_URL}`);
 }
 
 // Setup a store for the loading context
