@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", sans-serif;
+  }
+}
+
+@layer utilities {
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* Internet Explorer and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Opera */
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+}
+
+/* Simple spinner animation */
+@keyframes spinLoader {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Loader animations */
+@keyframes ball624 {
+  0% { transform: translate(0, 0); }
+  5% { transform: translate(8%, -14%); }
+  10% { transform: translate(15%, -10%); }
+  17% { transform: translate(23%, -24%); }
+  20% { transform: translate(30%, -20%); }
+  27% { transform: translate(38%, -34%); }
+  30% { transform: translate(45%, -30%); }
+  37% { transform: translate(53%, -44%); }
+  40% { transform: translate(60%, -40%); }
+  50% { transform: translate(80%, 0); }
+  57% { transform: translate(53%, -14%); }
+  60% { transform: translate(45%, -10%); }
+  67% { transform: translate(37%, -24%); }
+  70% { transform: translate(30%, -20%); }
+  77% { transform: translate(22%, -34%); }
+  80% { transform: translate(15%, -30%); }
+  87% { transform: translate(7%, -44%); }
+  90% { transform: translate(0, -40%); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes barUp1 {
+  0% { transform: scale(1, 0.2); }
+  40% { transform: scale(1, 0.2); }
+  50% { transform: scale(1, 1); }
+  90% { transform: scale(1, 1); }
+  100% { transform: scale(1, 0.2); }
+}
+
+@keyframes barUp2 {
+  0% { transform: scale(1, 0.4); }
+  40% { transform: scale(1, 0.4); }
+  50% { transform: scale(1, 0.8); }
+  90% { transform: scale(1, 0.8); }
+  100% { transform: scale(1, 0.4); }
+}
+
+@keyframes barUp3 {
+  0% { transform: scale(1, 0.6); }
+  100% { transform: scale(1, 0.6); }
+}
+
+@keyframes barUp4 {
+  0% { transform: scale(1, 0.8); }
+  40% { transform: scale(1, 0.8); }
+  50% { transform: scale(1, 0.4); }
+  90% { transform: scale(1, 0.4); }
+  100% { transform: scale(1, 0.8); }
+}
+
+@keyframes barUp5 {
+  0% { transform: scale(1, 1); }
+  40% { transform: scale(1, 1); }
+  50% { transform: scale(1, 0.2); }
+  90% { transform: scale(1, 0.2); }
+  100% { transform: scale(1, 1); }
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strange Metrics</title>
+    <meta name="description" content="Lohiya Generated Project" />
+    <meta name="author" content="Keshav" />
+    
+  </head>
+
+  <body>
+    <div id="root"></div>
+    
+    <!-- Loading indicator in case of script loading issues -->
+    <div id="loading-fallback" style="display: flex; justify-content: center; align-items: center; height: 100vh; width: 100vw; background-color: #1a1b26; color: white; font-family: system-ui, sans-serif;">
+      <div style="text-align: center;">
+        <div style="margin-bottom: 16px; font-size: 24px;">Loading application...</div>
+        <div style="margin-bottom: 16px;">If this persists, please check your browser console for errors.</div>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener('error', function(e) {
+        console.error('Global error caught:', e.error || e.message);
+        document.getElementById('loading-fallback').style.display = 'flex';
+      });
+      
+      window.addEventListener('load', function() {
+        document.getElementById('loading-fallback').style.display = 'none';
+      });
+    </script>
+    
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module" crossorigin="anonymous" onerror="console.error('Failed to load GPT Engineer script'); document.getElementById('loading-fallback').style.display = 'flex';"></script>
+    <script type="module" src="/src/main.tsx" onerror="console.error('Failed to load application script'); document.getElementById('loading-fallback').style.display = 'flex';"></script>
+  </body>
+</html>
